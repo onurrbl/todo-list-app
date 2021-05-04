@@ -1,5 +1,5 @@
 # todo-list-app
-Python Django To-Do list application
+Python Django To-Do list web application
 
 
 In Production
