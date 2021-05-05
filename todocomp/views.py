@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import (
     HttpResponse,
-    render,
+    
 )
 # Create your views here.
 
@@ -10,4 +10,4 @@ from django.http import (
 def homeView(request,*args,**kwargs):
 
 
-    render(request,'base.html', {} )
+    return render(request,'base.html', { } )
