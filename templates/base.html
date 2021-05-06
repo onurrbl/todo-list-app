@@ -16,7 +16,7 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a href="#" class="navbar-brand"> To Do List</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,7 +61,24 @@
     <p class=""> Content </p>
     <div class="container">
       <div class="row">
-        <div class="card col-lg-4 col-md-4 mb-4 shadow-sm" style="width: 18rem;">
+        {% if object %}
+        {% for todos in object %}
+
+        <div class="card col-lg-4 col-md-4 mb-4" style="width: 18rem;">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ todos.todo_title  }}</h5>
+            <p class="card-text">{{ todos.todo_parameter  }}</p>
+            <a href="#" class="btn btn-primary">{{ todos.expire_date  }}</a>
+          </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+
+
+        <!-- <div class="card col-lg-4 col-md-4 mb-4 shadow-sm" style="width: 18rem;">
 
           <div class="card-body">
             <h5 class="card-title">Title</h5>
@@ -108,7 +125,7 @@
             <p class="card-text">Do this later</p>
             <a href="#" class="btn btn-primary">Edit</a>
           </div>
-        </div>
+        </div> -->
       </div>
 
 
