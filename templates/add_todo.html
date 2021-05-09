@@ -1,0 +1,78 @@
+{% extends 'base.html '%}
+
+{% block content %}
+
+<div class="container bg-warning " >
+    <div class="py-5 text-center">
+
+      <h2>Create A To-Do</h2>
+
+    </div>
+  
+    <div class="row justify-content">
+      
+      <div class="col-md-12 order-md-1 text-center" >
+   
+        <form class="needs-validation" novalidate>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="todo-title">Title For To-Do</label>
+              <input type="text" class="form-control" id="todo-title" placeholder="" value="" required>
+
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="summary">Summary</label>
+              <input type="text" class="form-control" id="summary" placeholder="" value="" required>
+
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="todo-text">To-do Text</label>
+            <div class="input-group">
+
+              <input type="text" class="form-control" id="todo-text" placeholder="todo-text" required>
+  
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="email">Fill<span class="text-muted">(Optional)</span></label>
+            <input type="email" class="form-control" id="email" placeholder="placeholder">
+ 
+          </div>
+  
+
+  
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <label for="imp-level"> Importancy Level</label>
+              <select class="custom-select d-block w-100" id="imp-level" required>
+                <option value="">Choose...</option>
+                <option>Important</option>
+                <option>Regular</option>
+              </select>
+
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="state">Doldur</label>
+              <select class="custom-select d-block w-100" id="state" required>
+                <option value="">Choose...</option>
+                <option>empty</option>
+              </select>
+
+            </div>
+            
+          </div>
+          
+          <hr class="mb-4">
+  
+         
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Add To-Do</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -9,8 +9,20 @@ from django.contrib.auth import get_user_model
 
 
 def homeView(request,*args,**kwargs):
-    user = get_user_model()
-    obj = request.user.todos.all()
+    user = request.user
+    print(user)
+    try:
+        obj = request.user.todos.all()
+        
+    except:
+        context = { "object" : None}
+        return render(request,'main.html', context )
     context = { "object" : obj}
+    
+    return render(request,'main.html', context )
 
-    return render(request,'base.html', context)
+def add_todo_view(request,*args,**kwargs):
+
+
+
+    return render(request, "add_todo.html", {})
