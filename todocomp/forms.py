@@ -7,11 +7,28 @@ class TodoForm(forms.ModelForm):
         model = ToDo
         fields =('todo_title','todo_text', 'expire_date','importancy_level','is_accomplished')
 
-        widgets = {
-            'todo_title' : forms.TextInput(attrs= 'class' : )
-            'todo_text' : forms.TextInput(attrs= 'class' : )
-            'expire_date' : forms.DateField(attrs= 'class' : )
-            'importancy_level' : forms.Select(attrs= 'class' : )
-            'is_accomplished' : forms.TextInput(attrs= 'class' : )
+        widget = {
+            'todo_title' : forms.TextInput(attrs= {'class' : 'form-control'} ),
+            'todo_text' : forms.TextInput(attrs=  {'class' : 'form-control '}),
+            'expire_date' : forms.DateInput(attrs=  {'class' : 'form-control '} ),
+            'importancy_level' : forms.Select(attrs=  {'class' : 'form-control '} ),
+            'is_accomplished' : forms.Select(attrs= {'class' : 'form-control '} ),
 
         }
+
+
+
+class RegisterForm(forms.Form):
+    username = forms.CharField(max_length= 100)
+    email = forms.CharField(max_length=50)
+    password = forms.CharField(max_length=50)
+
+
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length= 100)
+    password = forms.CharField(max_length=50)
+
+
+

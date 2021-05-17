@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block style_block %}
+
+
+{% endblock style_block %}
+
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+
+
+{% block content %}
+<div class="container bg-warning col-md-5 " style="margin: auto;  text-align: center;">
+    <div class="py-5 text-center">
+
+
+
+        <div>
+            <h2 class="h2 mb-3 font-weight-normal">Please Log In</h2>
+        </div>
+
+
+        <div class="text-center col-md-12 order-md-3 form-group"> 
+            <form method="POST" action="" class="cold-md-12">
+
+            {% csrf_token %}   
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-danger col-md-8 mr-auto btn-lg">Log In</button>
+      
+          </form>
+            <br>
+            <a href='{% url 'register_view' %}'
+                <button   class="btn btn-primary col-md-8 mr-auto btn-lg"> Go Register</button>
+            </a>
+
+          </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

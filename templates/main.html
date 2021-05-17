@@ -4,49 +4,42 @@
 
 {% block content %}
 
-<p class=""> Content </p>
+
 <div class="container">
   <div class="row">
     {% if object %}
     {% for todos in object %}
 
-    <div class="card col-lg-4 col-md-4 mb-4" style="width: 18rem;">
+    <div class="card col-lg-4 col-md-6 mb-4 " style="width: 18rem;">
 
       <div class="card-body">
         <h5 class="card-title">{{ todos.todo_title  }}</h5>
-        <p class="card-text">{{ todos.todo_parameter  }}</p>
+        {% if todos.todo_text %}
+        <p class="card-text">{{ todos.todo_text  }}</p>
+        {% else %}
+        <p class="card-text"> Does not have text</p>
+        {% endif %}
+
         {% if todos.expire_date %}
         <p class="card-text">{{ todos.expire_date  }}}</p>
+        {% else %}
+        <p class="card-text"> Does'nt have expire date</p>
         {% endif %}
-        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="{% url "todocomp:edittodoview" todos.id %}" class="btn btn-warning">Edit</a>
+        <a href="{% url "todocomp:deletetodo" todos.id %}" class="btn btn-primary">Done</a>
+ 
       </div>
     </div>
 
     {% endfor %}
     {% else %}
-    <p>ele calisti</p>
+<a href='{% url 'todocomp:addtodoview' %}'> 
+  <h1 class="text-center"> You Do Not Have Any Todos Click Here To Create One </h1> </a>
     {% endif %}
 
 
 
-    <!-- <div class="card col-lg-4 col-md-4 mb-4 shadow-sm" style="width: 18rem;">
-
-      <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">Do this later</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-      </div>
-    </div>
-    <div class="card col-lg-4 col-md-4 mb-4" style="width: 18rem;">
-
-      <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">Do this later</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-      </div>
-    </div>
-    <div class="card col-lg-4 col-md-4 mb-4" style="width: 18rem;">
-
+    <!-- 
       <div class="card-body">
         <h5 class="card-title">Title</h5>
         <p class="card-text">Do this later</p>
@@ -55,28 +48,7 @@
     </div>
     <div class="card col-lg-4 col-md-4 mb-4 shadow-sm" style="width: 18rem;">
 
-      <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">Do this later</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-      </div>
-    </div>
-    <div class="card col-lg-4 col-md-4 mb-4 shadow-sm" style="width: 18rem;">
-
-      <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">Do this later</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-      </div>
-    </div>
-    <div class="card col-lg-4 col-md-4 mb-4 shadow-sm" style="width: 18rem;">
-
-      <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">Do this later</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-      </div>
-    </div> -->
+ -->
   </div>
 
 
